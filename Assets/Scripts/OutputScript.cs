@@ -1,6 +1,7 @@
 using System.Linq.Expressions;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class OutputScript : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class OutputScript : MonoBehaviour
     public TextMeshProUGUI outputText;
     public int outputInt;
     public TMP_Dropdown dropdown;
-    
+
+    public Toggle aaa;
+    public ToggleScript outputToggle;
+
+
     public enum LogicGateMode
     {
         AND,
@@ -118,6 +123,19 @@ public class OutputScript : MonoBehaviour
                     outputInt = 1;
                 }
                 break;
+        }
+        if(outputToggle != null)
+        {
+            if (outputInt == 1)
+            {
+                aaa.isOn = true;
+                outputToggle.selection = true;
+            }
+            else
+            {
+                aaa.isOn = false;
+                outputToggle.selection = false;
+            }
         }
     }
 
